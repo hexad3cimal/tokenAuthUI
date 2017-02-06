@@ -1,3 +1,70 @@
-<h1>
-  {{title}}
-</h1>
+<md-sidenav-layout >
+
+  <md-sidenav #sidenav mode="side" class="app-sidenav">
+    <md-card>
+
+      <ul>
+        <li><a href="default.asp">
+          <button md-button>FLAT</button>
+        </a></li>
+        <li><a href="news.asp">
+          <button md-button>FLAT</button>
+        </a></li>
+        <li><a href="contact.asp">
+          <button md-button>FLAT</button>
+        </a></li>
+        <li><a href="about.asp">
+          <button md-button>FLAT</button>
+        </a></li>
+      </ul>
+
+
+    </md-card>
+  </md-sidenav>
+
+  <md-toolbar color="primary">
+    <button class="app-icon-button" (click)="sidenav.toggle()">
+      <i class="material-icons">reorder</i>
+    </button>
+
+    Chocolate
+
+    <span class="app-toolbar-filler"></span>
+
+  </md-toolbar>
+
+  <div class="app-content">
+
+    <div layout="row" layout-sm="column">
+    <div flex="30">
+        <md-card class="app-input-section">
+          <md-input placeholder="First name"></md-input>
+
+          <md-input #nickname placeholder="Nickname" >
+            <md-hint align="end">
+              {{nickname.characterCount}} / 50
+            </md-hint>
+          </md-input>
+        </md-card>
+      </div>
+
+      <div flex="70">
+        <md-card class="app-input-section">
+          <md-input placeholder="First name"></md-input>
+
+          <md-input #nickname placeholder="Nickname"  max-rows="250">
+            <md-hint align="end">
+              {{nickname.characterCount}} / 50
+            </md-hint>
+          </md-input>
+        </md-card>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+</md-sidenav-layout>
+
