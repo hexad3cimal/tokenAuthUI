@@ -11,7 +11,10 @@
     "outDir": "../dist/out-tsc",
     "sourceMap": true,
     "target": "es5",
-
+    "styles": [
+      "styles.css",
+      "app-theme.scss"
+    ],
     "typeRoots": [
       "../node_modules/@types"
     ],
