@@ -1,0 +1,72 @@
+<md-sidenav-layout layout="column" layout-fill>
+
+  <md-sidenav #sidenav mode="side" layout="column" flex="30" class="app-sidenav">
+    <md-card>
+
+      <ul>
+        <li flex><a href="default.asp">
+          <button md-button>FLAT</button>
+        </a></li>
+        <li><a href="news.asp">
+          <button md-button>FLAT</button>
+        </a></li>
+        <li><a href="contact.asp">
+          <button md-button>FLAT</button>
+        </a></li>
+        <li><a href="about.asp">
+          <button md-button>FLAT</button>
+        </a></li>
+      </ul>
+
+
+    </md-card>
+  </md-sidenav>
+
+  <md-toolbar color="primary">
+    <button class="app-icon-button" (click)="sidenav.toggle()">
+      <i class="material-icons">reorder</i>
+    </button>
+
+    Chocolate
+
+    <span class="app-toolbar-filler"></span>
+
+  </md-toolbar>
+
+  <div class="app-content">
+
+    <div layout="row" layout-sm="column">
+      <div layout="column" flex="30">
+        <h3>Books</h3>
+        <ul>
+          <li *ngFor="let user of users">{{user.user_name}}</li>
+        </ul>
+      </div>
+      <div layout="column" flex="70">
+        <p>Create a new food: <input type="text" name="username" [(ngModel)]="username"></p>
+        <p>Create a new food: <input type="text" name="password" [(ngModel)]="password"></p>
+        <button (click)="createUser(username,password)">Save</button>
+      </div>
+
+      <div layout="row" layout-sm="column">
+        <div layout="column" flex="40">
+          <md-card class="app-input-section half">
+            <md-input placeholder="First name"></md-input>
+            <md-input class="input-full-width" #nickname placeholder="Nickname">
+              <md-hint align="end">
+                {{nickname.characterCount}} / 50
+              </md-hint>
+            </md-input>
+          </md-card>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</md-sidenav-layout>
+
+
+
+
+
+

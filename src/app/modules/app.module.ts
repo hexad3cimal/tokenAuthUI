@@ -3,9 +3,9 @@ import { NgModule,HostBinding, Input, Directive } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import {FlexLayoutModule} from "@angular/flex-layout";
-import { AppComponent } from './app.component';
+import { AppComponent } from '../components/app.component';
 import {MaterialModule} from "@angular/material";
-
+import {UserService} from '../services/user.service'
 @Directive({
   selector:'[layout]'
 })
@@ -45,7 +45,7 @@ export class FlexDirective{
     FlexLayoutModule.forRoot()
 
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
