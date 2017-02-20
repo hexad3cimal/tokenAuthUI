@@ -22,10 +22,7 @@ export class UserService {
 
     let headers = new Headers({'Content-Type': 'application/json'});
     let options = new RequestOptions({headers: headers});
-    console.log("reached service 3 >>" + user.username)
-
     let body = JSON.stringify(user);
-
     return this.http.post('http://localhost:3000/users', body, options).map((res:Response) => res.json());
   }
 

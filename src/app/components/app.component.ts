@@ -36,7 +36,7 @@ export class AppComponent {
 
   createUser(username,password) {
 
-    let user = {Id:"10",
+    let user = {
       username: username,
     password: password
     };
