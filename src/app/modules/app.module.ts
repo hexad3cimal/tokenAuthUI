@@ -5,7 +5,7 @@ import { HttpModule } from '@angular/http';
 import {FlexLayoutModule} from "@angular/flex-layout";
 import { AppComponent } from '../components/app.component';
 import {MaterialModule} from "@angular/material";
-import {UserService} from '../services/user.service'
+import {UserService} from '../users/user.service'
 @Directive({
   selector:'[layout]'
 })

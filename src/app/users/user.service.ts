@@ -30,7 +30,7 @@ export class UserService {
     let headers = new Headers({'Content-Type': 'application/json'});
     let options = new RequestOptions({headers: headers});
     let body = JSON.stringify(user);
-    return this.http.put('http://localhost:3000/users' + user.id, body, headers).map((res:Response) => res.json());
+    return this.http.put('http://localhost:3000/users' + user.id, body, options).map((res:Response) => res.json());
   }
 
   deleteUser(user) {
