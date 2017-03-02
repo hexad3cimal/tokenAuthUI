@@ -4,7 +4,7 @@
     <md-card>
 
       <ul>
-        <li flex><a href="default.asp">
+        <li flex><a [routerLink]="['/users']">
           <button md-button>FLAT</button>
         </a></li>
         <li><a href="news.asp">
@@ -35,30 +35,6 @@
 
   <div class="app-content" layout="column">
 
-    <div layout="row" >
-      <div class="half">
-        <h3>Books</h3>
-        <ul>
-          <li *ngFor="let user of users">{{user.user_name}}</li>
-        </ul>
-      </div>
-      <div class="half">
-        <p>Create a new food: <input type="text" name="username" [(ngModel)]="username"></p>
-        <p>Create a new food: <input type="text" name="password" [(ngModel)]="password"></p>
-        <button (click)="createUser(username,password)">Save</button>
-      </div>
-      </div>
-    <div layout="row" layout-align="center center" >
-
-    <div flex="70">
-        <md-card class="app-input-section">
-          <md-input placeholder="username" [(ngModel)]="username"></md-input>
-          <md-input class="full"  [(ngModel)]="password" placeholder="Password"> </md-input>
-
-          <button md-raised-button color="primary" (click)="createUser(username,password)">Add</button>
-        </md-card>
-      </div>
-    </div>
   </div>
 
 </md-sidenav-layout>

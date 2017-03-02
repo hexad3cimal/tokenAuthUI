@@ -3,16 +3,12 @@
  */
 import { ModuleWithProviders }  from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { UserComponent } from './users/user.component';
+import { UserComponent } from './users/userW.component';
 
 // Route Configuration
 export const routes: Routes = [
   { path: 'users', component: UserComponent }
 ];
 
-// Deprecated provide
-// export const APP_ROUTER_PROVIDERS = [
-//   provideRouter(routes)
-// ];
 
 export const routing: ModuleWithProviders = RouterModule.forRoot(routes);

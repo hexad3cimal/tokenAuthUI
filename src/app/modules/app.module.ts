@@ -4,8 +4,11 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import {FlexLayoutModule} from "@angular/flex-layout";
 import { AppComponent } from '../components/app.component';
+import { UserComponent } from '../users/userW.component';
 import {MaterialModule} from "@angular/material";
 import {UserService} from '../users/user.service'
+import {routing} from "../app.routes";
+import { UserComponent } from './user/user.component';
 @Directive({
   selector:'[layout]'
 })
@@ -35,12 +38,13 @@ export class FlexDirective{
 
 @NgModule({
   declarations: [
-    AppComponent,FlexDirective ,LayoutDirective
+    AppComponent,FlexDirective ,LayoutDirective, UserComponent, UserComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
+    routing,
     MaterialModule.forRoot(),
     FlexLayoutModule.forRoot()
 
