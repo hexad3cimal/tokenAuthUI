@@ -1,0 +1,26 @@
+<div layout="row" >
+  <div class="half">
+    <h3>Books</h3>
+    <ul>
+      <li *ngFor="let user of users">{{user.user_name}}</li>
+    </ul>
+  </div>
+  <div class="half">
+    <p>Create a new food: <input type="text" name="username" [(ngModel)]="username"></p>
+    <p>Create a new food: <input type="text" name="password" [(ngModel)]="password"></p>
+    <button (click)="createUser(username,password)">Save</button>
+  </div>
+</div>
+<div layout="row" layout-align="center center" >
+
+  <div flex="70">
+    <md-card class="app-input-section">
+      <md-input-container>
+      <input mdInput class="full"  [(ngModel)]="password" placeholder="Password">
+      <input mdInput class="full"  [(ngModel)]="username" placeholder="Username">
+
+      <button md-raised-button color="primary" (click)="createUser(username,password)">Add</button>
+        </md-input-container>
+    </md-card>
+  </div>
+</div>

@@ -3,11 +3,13 @@
  */
 import { ModuleWithProviders }  from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { UserComponent } from './users/userW.component';
+import { UserComponent } from './modules/user/user.component';
+import {AppComponent} from "./components/app.component";
 
 // Route Configuration
 export const routes: Routes = [
-  { path: 'users', component: UserComponent }
+  { path: 'users', component: UserComponent },
+  { path: '', component: AppComponent }
 ];
 
 

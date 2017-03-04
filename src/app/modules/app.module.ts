@@ -4,9 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import {FlexLayoutModule} from "@angular/flex-layout";
 import { AppComponent } from '../components/app.component';
-import { UserComponent } from '../users/userW.component';
 import {MaterialModule} from "@angular/material";
-import {UserService} from '../users/user.service'
+import {UserService} from './user/user.service'
 import {routing} from "../app.routes";
 import { UserComponent } from './user/user.component';
 @Directive({
@@ -38,20 +37,21 @@ export class FlexDirective{
 
 @NgModule({
   declarations: [
-    AppComponent,FlexDirective ,LayoutDirective, UserComponent, UserComponent
+    AppComponent,FlexDirective ,LayoutDirective, UserComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     routing,
-    MaterialModule.forRoot(),
-    FlexLayoutModule.forRoot()
+    MaterialModule,
+    FlexLayoutModule
 
   ],
   providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
 
 

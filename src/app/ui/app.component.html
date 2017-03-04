@@ -1,23 +1,14 @@
-<md-sidenav-layout layout="column" layout-fill>
+<md-sidenav-container layout="column" layout-fill>
 
   <md-sidenav #sidenav mode="side" layout="column" class="app-sidenav">
     <md-card>
 
       <ul>
-        <li flex><a [routerLink]="['/users']">
+        <li flex><a routerLink="users" routerLinkActive="active">
           <button md-button>FLAT</button>
         </a></li>
-        <li><a href="news.asp">
-          <button md-button>FLAT</button>
-        </a></li>
-        <li><a href="contact.asp">
-          <button md-button>FLAT</button>
-        </a></li>
-        <li><a href="about.asp">
-          <button md-button>FLAT</button>
-        </a></li>
-      </ul>
 
+      </ul>
 
     </md-card>
   </md-sidenav>
@@ -27,17 +18,18 @@
       <i class="material-icons">reorder</i>
     </button>
 
-    Chocolate
+    Token Auth
 
     <span class="app-toolbar-filler"></span>
 
   </md-toolbar>
 
   <div class="app-content" layout="column">
+    <router-outlet></router-outlet>
 
   </div>
 
-</md-sidenav-layout>
+</md-sidenav-container>
 
 
 
