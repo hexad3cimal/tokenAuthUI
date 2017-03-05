@@ -4,15 +4,21 @@
 
 import {Injectable} from '@angular/core';
 import {Http, Response, Headers, RequestOptions} from "@angular/http";
+import { AuthenticationService } from '../utils/auth';
 
 @Injectable()
 export class UserService {
 
-  constructor(private http:Http) {
+  constructor(private http:Http,
+              private authenticationService: AuthenticationService) {
   }
 
   getUsers() {
-    return this.http.get('http://localhost:3000/users').map((res:Response) => res.json());
+    let headers = new Headers({'Content-Type': 'application/json',
+      'Authorization': 'JWT '+this.authenticationService.token });
+    let options = new RequestOptions({headers: headers});
+
+    return this.http.get('http://localhost:3000/users',options).map((res:Response) => res.json());
   }
 
 

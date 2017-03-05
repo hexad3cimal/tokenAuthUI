@@ -4,13 +4,15 @@
 import { ModuleWithProviders }  from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { UserComponent } from './modules/user/user.component';
-import {AppComponent} from "./components/app.component";
+import { LoginComponent } from './modules/login/login.component';
 
 // Route Configuration
 export const routes: Routes = [
-  { path: 'users', component: UserComponent },
-  { path: '', component: AppComponent }
-];
+  {
+    path: 'users', component: UserComponent},
+  {path: 'login', component: LoginComponent}
+
+  ];
 
 
 export const routing: ModuleWithProviders = RouterModule.forRoot(routes);

@@ -6,8 +6,12 @@ import {FlexLayoutModule} from "@angular/flex-layout";
 import { AppComponent } from '../components/app.component';
 import {MaterialModule} from "@angular/material";
 import {UserService} from './user/user.service'
+import {AuthenticationService} from './utils/auth'
 import {routing} from "../app.routes";
 import { UserComponent } from './user/user.component';
+import { LoginComponent } from './login/login.component';
+import { AuthGuard } from '../auth-guard';
+
 @Directive({
   selector:'[layout]'
 })
@@ -37,7 +41,7 @@ export class FlexDirective{
 
 @NgModule({
   declarations: [
-    AppComponent,FlexDirective ,LayoutDirective, UserComponent
+    AppComponent,FlexDirective ,LayoutDirective, UserComponent, LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -48,7 +52,7 @@ export class FlexDirective{
     FlexLayoutModule
 
   ],
-  providers: [UserService],
+  providers: [UserService,AuthenticationService,AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

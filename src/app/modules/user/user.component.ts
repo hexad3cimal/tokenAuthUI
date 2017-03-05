@@ -24,7 +24,7 @@ export class UserComponent implements OnInit {
     this._userService.getUsers().subscribe(
       data => { this.users = data},
       err => console.error(err),
-      () => console.log('done loading')
+      () => console.log('done loading'),
     );
   }
 
