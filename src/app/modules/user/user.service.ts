@@ -15,7 +15,7 @@ export class UserService {
 
   getUsers() {
     let headers = new Headers({'Content-Type': 'application/json',
-      'Authorization': 'JWT '+this.authenticationService.token });
+      'Authorization': this.authenticationService.token });
     let options = new RequestOptions({headers: headers});
 
     return this.http.get('http://localhost:3000/users',options).map((res:Response) => res.json());

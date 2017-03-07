@@ -1,11 +1,16 @@
 <div layout="row" layout-align="center center" >
 
-  <div flex>
-    <md-card class="app-input-section">
-      <input mdInput class="full"  [(ngModel)]="username" placeholder="Username">
-      <input mdInput class="full"  [(ngModel)]="password" placeholder="Password">
+    <md-card>
+      <md-card-content>
 
-      <button md-raised-button color="primary" (click)="login(username,password)">Login</button>
+      <md-input-container>
+      <input mdInput class="full"  [(ngModel)]="username" placeholder="Username">
+      </md-input-container>
+<md-input-container>
+        <input mdInput class="full"  [(ngModel)]="password" placeholder="Password">
+</md-input-container>
+
+        <button md-button color="primary" (click)="login(username,password)">Login</button>
+</md-card-content>
     </md-card>
-  </div>
 </div>
