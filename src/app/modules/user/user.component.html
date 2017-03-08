@@ -13,9 +13,17 @@
 <div layout="row" layout-align="center center" >
 
   <div flex="70">
-    <md-card class="app-input-section">
-      <input mdInput class="full"  [(ngModel)]="password" placeholder="Password">
-      <input mdInput class="full"  [(ngModel)]="username" placeholder="Username">
+    <md-card>
+
+      <md-input-container class="half">
+
+        <input mdInput class="half"  [(ngModel)]="username" placeholder="Username">
+      </md-input-container>
+      <md-input-container class="half">
+
+      <input mdInput class="half"  type="password" [(ngModel)]="password" placeholder="Password">
+        </md-input-container>
+
 
       <button md-raised-button color="primary" (click)="createUser(username,password)">Add</button>
     </md-card>
