@@ -6,7 +6,7 @@ import {MdDialog, MdDialogRef} from '@angular/material';
 
 
 @Component({
-  selector: 'app.dialog',
+  selector: 'app-root',
   templateUrl: '../../ui/app.dialog.html',
 })
 export class ModalDialog {
