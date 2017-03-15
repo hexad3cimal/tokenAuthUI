@@ -1,6 +1,6 @@
-<div layout="row" >
+<div layout="row" flex>
   <div class="half">
-    <md-card>
+    <md-card class="half">
     <h3>Users</h3>
     <ul>
       <li *ngFor="let user of users">{{user.user_name}}</li>
@@ -10,18 +10,18 @@
   </div>
 
 </div>
-<div layout="row" layout-align="center center" >
 
-  <div flex="70">
-    <md-card>
+<div layout="row" flex>
+  <div flex="70" fxLayoutAlign="center center" >
+    <md-card layout-align="center center"  class="half">
 
-      <md-input-container class="half">
+      <md-input-container class="full" >
 
-        <input mdInput class="half"  [(ngModel)]="username" placeholder="Username">
+        <input mdInput  [(ngModel)]="username" placeholder="Username">
       </md-input-container>
-      <md-input-container class="half">
+      <md-input-container class="full">
 
-      <input mdInput class="half"  type="password" [(ngModel)]="password" placeholder="Password">
+      <input mdInput type="password" [(ngModel)]="password" placeholder="Password">
         </md-input-container>
 
 

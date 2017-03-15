@@ -8,7 +8,7 @@ import {MaterialModule} from "@angular/material";
 import {UserService} from './user/user.service'
 import {AuthenticationService} from './utils/auth'
 import {routing} from "../app.routes";
-import { UserComponent } from './user/user.component';
+import { UserComponent,ModalDialog } from './user/user.component';
 import { LoginComponent } from './login/login.component';
 import { AuthGuard } from '../auth-guard';
 
@@ -41,7 +41,7 @@ export class FlexDirective{
 
 @NgModule({
   declarations: [
-    AppComponent,FlexDirective ,LayoutDirective, UserComponent, LoginComponent
+    AppComponent,FlexDirective ,LayoutDirective, UserComponent, LoginComponent,ModalDialog
   ],
   imports: [
     BrowserModule,
@@ -52,6 +52,7 @@ export class FlexDirective{
     FlexLayoutModule
 
   ],
+  entryComponents: [ModalDialog],
   providers: [UserService,AuthenticationService,AuthGuard],
   bootstrap: [AppComponent]
 })

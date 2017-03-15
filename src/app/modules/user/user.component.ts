@@ -2,23 +2,44 @@
 import { Component, OnInit } from '@angular/core';
 import {UserService} from "./user.service";
 import {Observable} from 'rxjs/Rx';
+import {MdDialog, MdDialogRef} from '@angular/material';
+
+
+@Component({
+  selector: 'app.dialog',
+  templateUrl: '../../ui/app.dialog.html',
+})
+export class ModalDialog {
+  constructor(public dialogRef: MdDialogRef<ModalDialog>) {}
+}
+
 
 @Component({
   selector: 'app-root',
   templateUrl: './user.component.html',
   styleUrls: ['../../ui/app.component.css'],
 })
+
+
 export class UserComponent implements OnInit {
 
   public users;
   public username;
   public password;
+  public dialogTitle: string;
+  public dialogMessage: string;
 
-  constructor(private _userService: UserService) { }
+
+  constructor(private _userService: UserService,
+              public dialog: MdDialog) {
+
+  }
 
   ngOnInit() {
+
     this.getUsers();
   }
+
 
   getUsers() {
     this._userService.getUsers().subscribe(
@@ -27,6 +48,7 @@ export class UserComponent implements OnInit {
       () => console.log('done loading'),
     );
   }
+
 
 
   createUser(username,password) {
@@ -41,8 +63,21 @@ export class UserComponent implements OnInit {
 
       data => {
 
-        this.getUsers();
-        return true;
+        if(data == "Success!")
+        {
+
+
+          let dialogRef = this.dialog.open(ModalDialog);
+          dialogRef.afterClosed().subscribe(result => {
+           console.log("Closed");
+          });
+
+
+          this.getUsers();
+          return true;
+
+        } else {
+        }
       },
       error => {
         return Observable.throw(error);
@@ -78,4 +113,13 @@ export class UserComponent implements OnInit {
     }
   }
 
+
+
 }
+
+
+
+
+
+
+
