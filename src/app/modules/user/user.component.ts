@@ -10,18 +10,36 @@ import {MdDialog, MdDialogRef} from '@angular/material';
   templateUrl: '../../ui/app.dialog.html',
 })
 export class ModalDialog {
+
+  public dialogTitle: string;
+  public dialogMessage: string;
+
   constructor(public dialogRef: MdDialogRef<ModalDialog>) {}
 }
 
-
 @Component({
   selector: 'app-root',
-  templateUrl: './user.component.html',
-  styleUrls: ['../../ui/app.component.css'],
+  template:'<div layout="row" flex >'+
+  '<div flex="70" fxLayoutAlign="center center">'+
+  '<md-card layout-align="center center" class="margin-all half" >'+
+  '<md-card-header> Add new user </md-card-header>'+
+'<md-card-content>'+
+'<md-input-container class="full" >'+
+'<input mdInput  [(ngModel)]="username" placeholder="Username">'+
+  '</md-input-container>'+
+  '<md-input-container class="full">'+
+  '<input mdInput type="password" [(ngModel)]="password" placeholder="Password">'+
+  '</md-input-container>'+
+  '<button md-raised-button color="primary" (click)="createUser(username,password)">Add</button>'+
+  '</md-card-content>'+
+  '</md-card>'+
+  '</div>'+
+  '</div>',
+  styleUrls: ['../../ui/app.component.css']
 })
 
 
-export class UserComponent implements OnInit {
+export class UserAddComponent implements OnInit {
 
   public users;
   public username;
@@ -68,8 +86,10 @@ export class UserComponent implements OnInit {
 
 
           let dialogRef = this.dialog.open(ModalDialog);
+          dialogRef.componentInstance.dialogTitle = "Success!";
+          dialogRef.componentInstance.dialogMessage = "User added successfully!";
           dialogRef.afterClosed().subscribe(result => {
-           console.log("Closed");
+            console.log("Closed");
           });
 
 
@@ -112,6 +132,43 @@ export class UserComponent implements OnInit {
       );
     }
   }
+
+
+}
+
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './user.component.html',
+  styleUrls: ['../../ui/app.component.css'],
+})
+
+
+export class UserComponent implements OnInit {
+
+  public users;
+
+
+
+  constructor(private _userService: UserService,
+            ) {
+
+  }
+
+  ngOnInit() {
+
+    this.getUsers();
+  }
+
+
+  getUsers() {
+    this._userService.getUsers().subscribe(
+      data => { this.users = data},
+      err => console.error(err),
+      () => console.log('done loading'),
+    );
+  }
+
 
 
 

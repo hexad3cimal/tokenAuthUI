@@ -1,31 +1,12 @@
-<div layout="row" flex>
-  <div class="half">
-    <md-card class="half">
+<div  layout-xs="column" layout="column">
+<div layout="row"  flex >
+  <div class="half" fxLayoutAlign="center center">
+    <md-card layout-align="center center" class="margin-all half" >
     <h3>Users</h3>
     <ul>
       <li *ngFor="let user of users">{{user.user_name}}</li>
     </ul>
-
     </md-card>
   </div>
-
 </div>
-
-<div layout="row" flex>
-  <div flex="70" fxLayoutAlign="center center" >
-    <md-card layout-align="center center"  class="half">
-
-      <md-input-container class="full" >
-
-        <input mdInput  [(ngModel)]="username" placeholder="Username">
-      </md-input-container>
-      <md-input-container class="full">
-
-      <input mdInput type="password" [(ngModel)]="password" placeholder="Password">
-        </md-input-container>
-
-
-      <button md-raised-button color="primary" (click)="createUser(username,password)">Add</button>
-    </md-card>
-  </div>
 </div>

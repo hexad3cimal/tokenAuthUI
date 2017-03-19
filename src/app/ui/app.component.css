@@ -1,4 +1,7 @@
+.margin-all {
 
+  margin: 10px 10px 10px 10px ;
+}
 
 ul {
   list-style-type: none;
