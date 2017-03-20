@@ -4,6 +4,11 @@ import {UserService} from "./user.service";
 import {Observable} from 'rxjs/Rx';
 import {MdDialog, MdDialogRef} from '@angular/material';
 
+export class User {
+  id:string;
+  user_name: string;
+  password: string;
+}
 
 @Component({
   selector: 'app-root',
@@ -148,10 +153,13 @@ export class UserComponent implements OnInit {
 
   public users;
 
+  public isEdit;
+  public editId;
 
 
   constructor(private _userService: UserService,
             ) {
+
 
   }
 
@@ -160,6 +168,13 @@ export class UserComponent implements OnInit {
     this.getUsers();
   }
 
+
+  onSelect( user : User){
+    this.editId = user.id;
+
+
+    console.log(user.user_name);
+  }
 
   getUsers() {
     this._userService.getUsers().subscribe(
