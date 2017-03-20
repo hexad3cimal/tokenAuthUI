@@ -110,33 +110,7 @@ export class UserAddComponent implements OnInit {
     );
   }
 
-  updateUser(username) {
-    this._userService.updateUser(username).subscribe(
-      data => {
-        // refresh the list
-        this.getUsers();
-        return true;
-      },
-      error => {
-        return Observable.throw(error);
-      }
-    );
-  }
 
-  deleteUser(username) {
-    if (confirm("Are you sure you want to delete " + username+ "?")) {
-      this._userService.deleteUser(username).subscribe(
-        data => {
-          // refresh the list
-          this.getUsers();
-          return true;
-        },
-        error => {
-          return Observable.throw(error);
-        }
-      );
-    }
-  }
 
 
 }
@@ -182,6 +156,34 @@ export class UserComponent implements OnInit {
       err => console.error(err),
       () => console.log('done loading'),
     );
+  }
+
+  updateUser(user) {
+    this._userService.updateUser(user).subscribe(
+      data => {
+        // refresh the list
+        this.getUsers();
+        return true;
+      },
+      error => {
+        return Observable.throw(error);
+      }
+    );
+  }
+
+  deleteUser(username) {
+    if (confirm("Are you sure you want to delete " + username+ "?")) {
+      this._userService.deleteUser(username).subscribe(
+        data => {
+          // refresh the list
+          this.getUsers();
+          return true;
+        },
+        error => {
+          return Observable.throw(error);
+        }
+      );
+    }
   }
 
 

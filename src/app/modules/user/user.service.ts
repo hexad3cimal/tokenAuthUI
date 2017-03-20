@@ -35,10 +35,13 @@ export class UserService {
   }
 
   updateUser(user) {
-    let headers = new Headers({'Content-Type': 'application/json'});
+
+    console.log("User>>>"+user)
+    let headers = new Headers({'Content-Type': 'application/json',
+      'Authorization': this.authenticationService.token });
     let options = new RequestOptions({headers: headers});
     let body = JSON.stringify(user);
-    return this.http.put('http://localhost:3000/users' + user.id, body, options).map((res:Response) => res.json());
+    return this.http.put('http://localhost:3000/users' , body, options).map((res:Response) => res.json());
   }
 
   deleteUser(user) {

@@ -5,7 +5,6 @@
         <h3>Users</h3>
         <table>
           <tr *ngFor="let user of users">
-            <td *ngIf="editId != user.id">{{user.id}}</td>
             <td *ngIf="editId != user.id">{{user.user_name}}</td>
             <td *ngIf="editId != user.id">{{user.password}}</td>
             <td *ngIf="editId === user.id">
@@ -21,8 +20,12 @@
             </td>
 
 
-            <td>
+            <td *ngIf="editId != user.id">
               <button md-raised-button color="primary" (click)="onSelect(user)">Edit</button>
+            </td>
+
+            <td *ngIf="editId === user.id">
+              <button md-raised-button color="primary" (click)="updateUser(user)">Update</button>
             </td>
           </tr>
         </table>
