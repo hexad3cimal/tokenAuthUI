@@ -1,8 +1,7 @@
 <div layout-xs="column" layout="column">
   <div layout="row" flex>
     <div class="half" fxLayoutAlign="center center">
-      <md-card layout-align="center center" class="margin-all half">
-        <h3>Users</h3>
+      <md-card fxLayoutAlign="center center" class="margin-all">
         <table>
           <tr *ngFor="let user of users">
             <td *ngIf="editId != user.id">{{user.user_name}}</td>

@@ -14,7 +14,6 @@ export class UserService {
   }
 
   getUsers() {
-    console.log("reached on getusersss");
 
     let headers = new Headers({'Content-Type': 'application/json',
       'Authorization': this.authenticationService.token });
@@ -36,7 +35,6 @@ export class UserService {
 
   updateUser(user) {
 
-    console.log("User>>>"+user)
     let headers = new Headers({'Content-Type': 'application/json',
       'Authorization': this.authenticationService.token });
     let options = new RequestOptions({headers: headers});

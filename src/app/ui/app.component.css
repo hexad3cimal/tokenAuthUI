@@ -3,6 +3,11 @@
   margin: 10px 10px 10px 10px ;
 }
 
+.pull-right{
+
+  float: right;
+}
+
 ul {
   list-style-type: none;
   margin: 0;
@@ -19,6 +24,10 @@ ul {
 
 .quarter {
   width: 25%;
+}
+
+.pyind {
+  width: 75%;
 }
 
 
