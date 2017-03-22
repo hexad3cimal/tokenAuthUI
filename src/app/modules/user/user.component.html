@@ -26,6 +26,10 @@
             <td *ngIf="editId === user.id">
               <button md-raised-button color="primary" (click)="updateUser(user)">Update</button>
             </td>
+
+            <td *ngIf="editId != user.id">
+              <button md-raised-button color="primary" (click)="deleteUser(user)">Delete</button>
+            </td>
           </tr>
         </table>
       </md-card>

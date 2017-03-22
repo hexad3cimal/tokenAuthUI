@@ -147,7 +147,6 @@ export class UserComponent implements OnInit {
     this.editId = user.id;
 
 
-    console.log(user.user_name);
   }
 
   getUsers() {
@@ -171,9 +170,10 @@ export class UserComponent implements OnInit {
     );
   }
 
-  deleteUser(username) {
-    if (confirm("Are you sure you want to delete " + username+ "?")) {
-      this._userService.deleteUser(username).subscribe(
+  deleteUser(userid) {
+
+    console.log("detele "+userid)
+      this._userService.deleteUser(userid).subscribe(
         data => {
           // refresh the list
           this.getUsers();
@@ -183,7 +183,7 @@ export class UserComponent implements OnInit {
           return Observable.throw(error);
         }
       );
-    }
+
   }
 
 
