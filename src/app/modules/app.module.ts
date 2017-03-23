@@ -11,6 +11,7 @@ import {routing} from "../app.routes";
 import { UserComponent,ModalDialog,UserAddComponent } from './user/user.component';
 import { LoginComponent } from './login/login.component';
 import { AuthGuard } from '../auth-guard';
+import { UnauthComponentComponent } from './unauth-component/unauth-component.component';
 
 @Directive({
   selector:'[layout]'
@@ -41,7 +42,7 @@ export class FlexDirective{
 
 @NgModule({
   declarations: [
-    AppComponent,FlexDirective ,LayoutDirective, UserComponent, LoginComponent,ModalDialog,UserAddComponent
+    AppComponent,FlexDirective ,LayoutDirective, UserComponent, LoginComponent,ModalDialog,UserAddComponent, UnauthComponentComponent
   ],
   imports: [
     BrowserModule,
